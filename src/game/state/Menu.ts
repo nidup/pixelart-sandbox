@@ -1,4 +1,6 @@
 
+import {Alien} from "../../world/ufo";
+
 export default class Menu extends Phaser.State {
 
     private titleText : Phaser.BitmapText;
@@ -20,13 +22,28 @@ export default class Menu extends Phaser.State {
         const unitLayer = this.game.add.group();
         unitLayer.name = 'Unit';
 
-        const ufo = this.game.add.sprite(300, 300, 'Main', 0);
+
+        const alien1 = new Alien(unitLayer, 300, 300);
+        alien1.animations.play('idle');
+
+
+        const alien2 = new Alien(unitLayer, 400, 300);
+        alien2.animations.play('killed');
+
+
+        console.log(this.game);
+
+
+        /*
+        const ufo = this.game.add.sprite(300, 300, 'characters', 0);
         ufo.anchor.setTo(.5, .5);
         ufo.scale.setTo(2, 2);
         unitLayer.game.physics.enable(ufo, Phaser.Physics.ARCADE);
 
-        ufo.animations.add('idle', [0, 1, 2, 3, 4, 5, 6], 5, true);
-        ufo.animations.play('idle');
+        ufo.animations.add('idle', [0, 1, 2, 3, 4, 5, 6, 7], 4, true);
+        ufo.animations.add('killed', [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], 4, true);
+        ufo.animations.play('killed');
+        */
 
 
     }
