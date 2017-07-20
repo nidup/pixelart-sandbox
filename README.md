@@ -32,7 +32,7 @@ docker images
 
 Run to mount local project code inside the container and bind ports
 ```
-docker run --name phaserjs -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaserjs
+docker container rm phaser && docker run --name phaser -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaser:latest
 ```
 
 Your container should appears in the list when typing,
@@ -43,14 +43,14 @@ docker ps
 ## Install / update project dependencies
 
 ```
-docker exec -it phaserjs npm install
+docker exec -it phaser npm install
 ```
 
 ## Running the project in dev mode:
 
 Launch webpack server in watch mode,
 ```
-docker exec -it phaserjs npm run dev
+docker exec -it phaser npm run dev
 ```
 
 You can access your project in your browser,

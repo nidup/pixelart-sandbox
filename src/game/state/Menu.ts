@@ -1,5 +1,6 @@
 
 import {Alien} from "../../world/ufo";
+import {Jojo} from "../../world/jojo";
 
 export default class Menu extends Phaser.State {
 
@@ -17,34 +18,43 @@ export default class Menu extends Phaser.State {
         this.titleText = this.game.add.bitmapText(40, 100, 'carrier-command','PhaserJS SandBox', 27);
         this.subtitleText = this.game.add.bitmapText(40, 140, 'carrier-command','XXXX Game Jam #x by nidup', 10);
 
-        this.startText = this.game.add.bitmapText(240, 450, 'carrier-command','Press space to start', 10);
+//        this.startText = this.game.add.bitmapText(240, 450, 'carrier-command','Press space to start', 10);
 
         const unitLayer = this.game.add.group();
         unitLayer.name = 'Unit';
 
+        const test = 'jojo';
 
-        const alien1 = new Alien(unitLayer, 300, 300);
-        alien1.animations.play('idle');
+        if (test != 'jojo') {
 
-
-        const alien2 = new Alien(unitLayer, 400, 300);
-        alien2.animations.play('killed');
-
-
-        console.log(this.game);
+            const alien1 = new Alien(unitLayer, 100, 200);
+            alien1.animations.play('idle');
 
 
-        /*
-        const ufo = this.game.add.sprite(300, 300, 'characters', 0);
-        ufo.anchor.setTo(.5, .5);
-        ufo.scale.setTo(2, 2);
-        unitLayer.game.physics.enable(ufo, Phaser.Physics.ARCADE);
+            const alien2 = new Alien(unitLayer, 200, 200);
+            alien2.animations.play('killed');
 
-        ufo.animations.add('idle', [0, 1, 2, 3, 4, 5, 6, 7], 4, true);
-        ufo.animations.add('killed', [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], 4, true);
-        ufo.animations.play('killed');
-        */
+            const alien3 = new Alien(unitLayer, 300, 200);
+            alien3.animations.play('headshot');
 
+            const alien4 = new Alien(unitLayer, 400, 200);
+            alien4.animations.play('falling');
+
+            const alien5 = new Alien(unitLayer, 500, 200);
+            alien5.animations.play('headshot2');
+
+        } else {
+
+            const jojo1 = new Jojo(unitLayer, 100, 200);
+            jojo1.animations.play('idle');
+
+            const jojo2 = new Jojo(unitLayer, 180, 200);
+            jojo2.animations.play('shot');
+
+            const jojo3 = new Jojo(unitLayer, 260, 200);
+            jojo3.animations.play('walk');
+
+        }
 
     }
 
