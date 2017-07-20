@@ -2,10 +2,9 @@
 
 Sandboxing few ideas
 
-
 # Demo
 
-TODO
+You can access to the demo [here](https://nidup.github.io/pixelart-sandbox/)
 
 # Screenshots
 
@@ -20,7 +19,7 @@ You need to have `docker` installed
 ## Build the dev image
 
 ```
-docker build -t nidup/phaserjs .
+docker build -t nidup/phaser .
 ```
 
 Your image should appears in the list when typing,
@@ -72,7 +71,7 @@ git rebase master -i
 ## Build the bundle.js
 
 ```
-docker exec -it phaserjs npm run build
+docker exec -it phaser npm run build
 ```
 
 ## Commit then push the bundle.js
@@ -89,10 +88,10 @@ TODO
 
 # Troubleshooting
 
-## Conflict. The container name "/phaserjs" is already in use by container
+## Conflict. The container name "/phaser" is already in use by container
 
 ```
-docker rm phaserjs
+docker rm phaser
 ```
 
 # Utils
@@ -101,7 +100,7 @@ docker rm phaserjs
 
 Run,
 ```
-docker exec -it phaserjs bash
+docker exec -it phaser bash
 ```
 
 Your local files should be mounted in the container,
