@@ -15,8 +15,8 @@ export default class Menu extends Phaser.State {
         let spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         spaceKey.onDown.add(this.startGame, this);
 
-        this.titleText = this.game.add.bitmapText(40, 100, 'carrier-command','PhaserJS SandBox', 27);
-        this.subtitleText = this.game.add.bitmapText(40, 140, 'carrier-command','XXXX Game Jam #x by nidup', 10);
+        this.titleText = this.game.add.bitmapText(850, 700, 'carrier-command','PixelArt SandBox', 20);
+        this.subtitleText = this.game.add.bitmapText(850, 740, 'carrier-command','XXXX Game Jam #x by nidup', 10);
 
 //        this.startText = this.game.add.bitmapText(240, 450, 'carrier-command','Press space to start', 10);
 
@@ -25,7 +25,7 @@ export default class Menu extends Phaser.State {
 
         const test = 'jojo';
 
-        if (test != 'jojo') {
+//        if (test != 'jojo') {
 
             const alien1 = new Alien(unitLayer, 100, 200);
             alien1.animations.play('idle');
@@ -43,18 +43,18 @@ export default class Menu extends Phaser.State {
             const alien5 = new Alien(unitLayer, 500, 200);
             alien5.animations.play('headshot2');
 
-        } else {
+//        } else {
 
-            const jojo1 = new Jojo(unitLayer, 100, 200);
+            const jojo1 = new Jojo(unitLayer, 100, 100);
             jojo1.animations.play('idle');
 
-            const jojo2 = new Jojo(unitLayer, 180, 200);
+            const jojo2 = new Jojo(unitLayer, 180, 100);
             jojo2.animations.play('shot');
 
-            const jojo3 = new Jojo(unitLayer, 260, 200);
+            const jojo3 = new Jojo(unitLayer, 260, 100);
             jojo3.animations.play('walk');
 
-        }
+ //       }
 
     }
 

@@ -6,7 +6,7 @@ export class Alien extends Phaser.Sprite
         super(group.game, x, y, 'characters', 0);
 
         this.anchor.setTo(.5, .5);
-        this.scale.setTo(2, 2);
+        this.scale.setTo(1.5, 1.5);
         group.game.physics.enable(this, Phaser.Physics.ARCADE);
         group.add(this);
 

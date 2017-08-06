@@ -29,8 +29,8 @@ export default class Preload extends Phaser.State {
 
     private loadGameImages()
     {
-        this.load.spritesheet('characters', 'assets/sprites/characters.png', 32, 32);
-        this.load.spritesheet('jojo', 'assets/sprites/jojo.png', 32, 32);
+        this.load.spritesheet('characters', 'assets/sprites/ufo/characters.png', 32, 32);
+        this.load.spritesheet('jojo', 'assets/sprites/jojo/jojo.png', 32, 32);
     }
 
     private loadUIImages()
