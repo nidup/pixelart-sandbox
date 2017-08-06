@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -117,8 +117,9 @@ exports.default = Boot;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const ufo_1 = __webpack_require__(6);
+const ufo_1 = __webpack_require__(7);
 const jojo_1 = __webpack_require__(5);
+const meche_1 = __webpack_require__(6);
 class Menu extends Phaser.State {
     create() {
         this.game.stage.backgroundColor = '#1b1128';
@@ -129,8 +130,13 @@ class Menu extends Phaser.State {
         //        this.startText = this.game.add.bitmapText(240, 450, 'carrier-command','Press space to start', 10);
         const unitLayer = this.game.add.group();
         unitLayer.name = 'Unit';
-        const test = 'jojo';
-        //        if (test != 'jojo') {
+        const test = 'meche';
+        // if (test == 'meche') {
+        new meche_1.Meche(unitLayer, 100, 300, 'meche-idle', [0, 1, 2, 3], 6, true);
+        new meche_1.Meche(unitLayer, 200, 300, 'meche-run', [0, 1, 2, 3, 4], 10, true);
+        new meche_1.Meche(unitLayer, 300, 300, 'meche-jump', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+        new meche_1.Meche(unitLayer, 400, 300, 'meche-die', [0, 1, 2, 3, 4, 5, 6, 7], 10, false);
+        //  } else {
         const alien1 = new ufo_1.Alien(unitLayer, 100, 200);
         alien1.animations.play('idle');
         const alien2 = new ufo_1.Alien(unitLayer, 200, 200);
@@ -141,14 +147,13 @@ class Menu extends Phaser.State {
         alien4.animations.play('falling');
         const alien5 = new ufo_1.Alien(unitLayer, 500, 200);
         alien5.animations.play('headshot2');
-        //        } else {
         const jojo1 = new jojo_1.Jojo(unitLayer, 100, 100);
         jojo1.animations.play('idle');
         const jojo2 = new jojo_1.Jojo(unitLayer, 180, 100);
         jojo2.animations.play('shot');
         const jojo3 = new jojo_1.Jojo(unitLayer, 260, 100);
         jojo3.animations.play('walk');
-        //       }
+        // }
     }
     startGame() {
         this.game.state.start('Play');
@@ -240,6 +245,10 @@ class Preload extends Phaser.State {
     loadGameImages() {
         this.load.spritesheet('characters', 'assets/sprites/ufo/characters.png', 32, 32);
         this.load.spritesheet('jojo', 'assets/sprites/jojo/jojo.png', 32, 32);
+        this.load.spritesheet('meche-idle', 'assets/sprites/meching/Meche-idle.png', 32, 32);
+        this.load.spritesheet('meche-run', 'assets/sprites/meching/Meche-run.png', 32, 32);
+        this.load.spritesheet('meche-jump', 'assets/sprites/meching/Meche-jump.png', 32, 32);
+        this.load.spritesheet('meche-die', 'assets/sprites/meching/Meche-die.png', 32, 32);
     }
     loadUIImages() {
         this.load.bitmapFont('carrier-command', 'assets/fonts/carrier_command.png', 'assets/fonts/carrier_command.xml');
@@ -277,6 +286,27 @@ exports.Jojo = Jojo;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+class Meche extends Phaser.Sprite {
+    constructor(group, x, y, key, frames, rate, loop) {
+        super(group.game, x, y, key, 0);
+        this.anchor.setTo(.5, .5);
+        this.scale.setTo(2, 2);
+        group.game.physics.enable(this, Phaser.Physics.ARCADE);
+        group.add(this);
+        this.animations.add(key, frames, rate, loop);
+        this.animations.play(key);
+    }
+}
+exports.Meche = Meche;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 class Alien extends Phaser.Sprite {
     constructor(group, x, y) {
         super(group.game, x, y, 'characters', 0);
@@ -295,7 +325,7 @@ exports.Alien = Alien;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(0);

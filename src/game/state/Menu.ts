@@ -1,6 +1,7 @@
 
 import {Alien} from "../../world/ufo";
 import {Jojo} from "../../world/jojo";
+import {Meche} from "../../world/meche";
 
 export default class Menu extends Phaser.State {
 
@@ -23,9 +24,16 @@ export default class Menu extends Phaser.State {
         const unitLayer = this.game.add.group();
         unitLayer.name = 'Unit';
 
-        const test = 'jojo';
+        const test = 'meche';
 
-//        if (test != 'jojo') {
+       // if (test == 'meche') {
+
+        new Meche(unitLayer, 100, 300, 'meche-idle', [0, 1, 2, 3], 6, true);
+        new Meche(unitLayer, 200, 300, 'meche-run', [0, 1, 2, 3, 4], 10, true);
+        new Meche(unitLayer, 300, 300, 'meche-jump', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+        new Meche(unitLayer, 400, 300, 'meche-die', [0, 1, 2, 3, 4, 5, 6, 7], 10, false);
+
+      //  } else {
 
             const alien1 = new Alien(unitLayer, 100, 200);
             alien1.animations.play('idle');
@@ -43,8 +51,6 @@ export default class Menu extends Phaser.State {
             const alien5 = new Alien(unitLayer, 500, 200);
             alien5.animations.play('headshot2');
 
-//        } else {
-
             const jojo1 = new Jojo(unitLayer, 100, 100);
             jojo1.animations.play('idle');
 
@@ -54,7 +60,7 @@ export default class Menu extends Phaser.State {
             const jojo3 = new Jojo(unitLayer, 260, 100);
             jojo3.animations.play('walk');
 
- //       }
+       // }
 
     }
 
