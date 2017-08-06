@@ -6,32 +6,13 @@ Sandboxing few ideas
 
 You can access to the demo [here](https://nidup.github.io/pixelart-sandbox/)
 
-# Screenshots
-
-TODO
-
 # Getting Started to Dev
-
-## Pre-requisites
-
-You need to have `docker` installed
-
-## Build the dev image
-
-```
-docker build -t nidup/phaser .
-```
-
-Your image should appears in the list when typing,
-```
-docker images
-```
 
 ## Run the dev image
 
 Run to mount local project code inside the container and bind ports
 ```
-docker container rm phaser && docker run --name phaser -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaser:latest
+docker run --name phaser -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaser:latest
 ```
 
 Your container should appears in the list when typing,
@@ -57,16 +38,7 @@ You can access your project in your browser,
 http://localhost:8080/
 ```
 
-# Deploy in production
-
-We deploy online version directly from our Github repository with https://pages.github.com/
-
-## Checkout the gh-page and rebase master on
-
-```
-git checkout gh-pages
-git rebase master -i
-```
+# Deploy the demo
 
 ## Build the bundle.js
 
@@ -81,10 +53,6 @@ git add build/bundle.js
 git commit
 git push
 ```
-
-## Check the deployment
-
-TODO
 
 # Troubleshooting
 
@@ -109,6 +77,8 @@ ls
 Dockerfile  LICENSE  README.md	assets	bin  doc  index.html  lib  package.json  src  tsconfig.json  webpack.config.js
 ```
 
-# Resources
+# Licenses
 
-TODO
+MIT for the code of this repository (src folder).
+
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) for the artwork (assets folder).
