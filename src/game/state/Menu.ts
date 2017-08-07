@@ -2,6 +2,7 @@
 import {Alien} from "../../world/ufo";
 import {Jojo} from "../../world/jojo";
 import {Meche} from "../../world/meche";
+import {Barbar} from "../../world/Barbar";
 
 export default class Menu extends Phaser.State {
 
@@ -24,43 +25,36 @@ export default class Menu extends Phaser.State {
         const unitLayer = this.game.add.group();
         unitLayer.name = 'Unit';
 
-        const test = 'meche';
-
-       // if (test == 'meche') {
-
         new Meche(unitLayer, 100, 300, 'meche-idle', [0, 1, 2, 3], 6, true);
         new Meche(unitLayer, 200, 300, 'meche-run', [0, 1, 2, 3, 4], 10, true);
         new Meche(unitLayer, 300, 300, 'meche-jump', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
         new Meche(unitLayer, 400, 300, 'meche-die', [0, 1, 2, 3, 4, 5, 6, 7], 10, false);
 
-      //  } else {
+        const alien1 = new Alien(unitLayer, 100, 200);
+        alien1.animations.play('idle');
 
-            const alien1 = new Alien(unitLayer, 100, 200);
-            alien1.animations.play('idle');
+        const alien2 = new Alien(unitLayer, 200, 200);
+        alien2.animations.play('killed');
 
+        const alien3 = new Alien(unitLayer, 300, 200);
+        alien3.animations.play('headshot');
 
-            const alien2 = new Alien(unitLayer, 200, 200);
-            alien2.animations.play('killed');
+        const alien4 = new Alien(unitLayer, 400, 200);
+        alien4.animations.play('falling');
 
-            const alien3 = new Alien(unitLayer, 300, 200);
-            alien3.animations.play('headshot');
+        const alien5 = new Alien(unitLayer, 500, 200);
+        alien5.animations.play('headshot2');
 
-            const alien4 = new Alien(unitLayer, 400, 200);
-            alien4.animations.play('falling');
+        const jojo1 = new Jojo(unitLayer, 100, 100);
+        jojo1.animations.play('idle');
 
-            const alien5 = new Alien(unitLayer, 500, 200);
-            alien5.animations.play('headshot2');
+        const jojo2 = new Jojo(unitLayer, 180, 100);
+        jojo2.animations.play('shot');
 
-            const jojo1 = new Jojo(unitLayer, 100, 100);
-            jojo1.animations.play('idle');
+        const jojo3 = new Jojo(unitLayer, 260, 100);
+        jojo3.animations.play('walk');
 
-            const jojo2 = new Jojo(unitLayer, 180, 100);
-            jojo2.animations.play('shot');
-
-            const jojo3 = new Jojo(unitLayer, 260, 100);
-            jojo3.animations.play('walk');
-
-       // }
+        new Barbar(unitLayer, 100, 400, 'barbar-idle', [0, 1, 2, 3], 6, true)
 
     }
 

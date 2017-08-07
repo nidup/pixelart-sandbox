@@ -35,6 +35,7 @@ export default class Preload extends Phaser.State {
         this.load.spritesheet('meche-run', 'assets/sprites/meching/Meche-run.png', 32, 32);
         this.load.spritesheet('meche-jump', 'assets/sprites/meching/Meche-jump.png', 32, 32);
         this.load.spritesheet('meche-die', 'assets/sprites/meching/Meche-die.png', 32, 32);
+        this.load.spritesheet('barbar-idle', 'assets/sprites/barbar/Barbar.png', 64, 64);
     }
 
     private loadUIImages()
