@@ -12,7 +12,7 @@ You can access to the demo [here](https://nidup.github.io/pixelart-sandbox/)
 
 Run to mount local project code inside the container and bind ports
 ```
-docker run --name phaser -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaser:latest
+docker run --name phaser --rm -v "$PWD":/usr/src/app -p 8080:8080 -d nidup/phaser:latest
 ```
 
 Your container should appears in the list when typing,
@@ -52,14 +52,6 @@ docker exec -it phaser npm run build
 git add build/bundle.js
 git commit
 git push
-```
-
-# Troubleshooting
-
-## Conflict. The container name "/phaser" is already in use by container
-
-```
-docker rm phaser
 ```
 
 # Utils
